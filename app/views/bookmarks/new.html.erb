@@ -1,0 +1,18 @@
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-4">
+    <h4 class="text-center mb-5">🎥 Add a movie</h4>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-4">
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.association :movie %>
+      <%= f.input :comment %>
+      <%= f.hidden_field :list_id, value: @list.id %>
+      <div class="d-flex" style="gap: 16px;">
+        <%= link_to "Cancel", list_path(@list), class: "btn btn-outline-secondary w-100 mt-4" %>
+        <%= f.button :submit, { class: "btn btn-primary w-100 mt-4" } %>
+      </div>
+    <% end %>
+  </div>
+</div>
