@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   get 'lists', to: 'lists#index'
   get 'lists/new', to: 'lists#new'
   get 'lists/:id/bookmarks/new', to: 'bookmarks#new', as: :bookmark_new
+  delete 'lists/:list_id/bookmarks/:bookmark_id', to: 'bookmarks#destroy', as: :list_bookmark
+  post 'lists/:id/bookmarks', to: 'bookmarks#create', as: :list_bookmarks
   get 'lists/:id', to: 'lists#show', as: :list
   post 'lists', to: 'lists#create'
-  post 'lists/:id/bookmarks', to: 'bookmarks#create', as: :list_bookmarks
-  delete 'lists/:id/bookmarks/:bookmark_id', to: 'bookmarks#destroy', as: :bookmark_destroy
 end

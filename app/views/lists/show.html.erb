@@ -18,7 +18,8 @@
                     <h6 style="font-weight: 300;"><%= bookmark.movie.rating %></h6>
                   </div>
                     <p class="text-secondary"><%= bookmark.movie.overview %></p>
-                    <%= link_to "Remove", lists_path, class: "text-danger" %>
+                    <p><%= bookmark.comment %></p>
+                    <%= link_to "Remove", list_bookmark_path(list_id: @list.id, bookmark_id: bookmark.id), data: { turbo_method: :delete }, class: "text-danger" %>
                 </div>
               </div>
             <% end %>
