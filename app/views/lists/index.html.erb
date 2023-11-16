@@ -1,0 +1,28 @@
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-4">
+    <h4 class="text-center mb-5">🎬 Your lists</h4>
+  </div>
+</div>
+<% @lists.each_slice(3) do |list_set| %>
+  <div class="row mb-3">
+    <div class="col-12 justify-content-center d-flex" style="gap: 16px;">
+      <% list_set.each do |list| %>
+          <%= link_to(list_path(list)) do %>
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <div>
+                  <h5 class="card-title"><%= list.name %></h5>
+                </div>
+              </div>
+            </div>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+<br>
+<div class="row justify-content-center">
+  <div class="col-12 text-center">
+    <%= link_to "New list", lists_new_path, class: "btn btn-primary mt-3" %>
+  </div>
+</div>
