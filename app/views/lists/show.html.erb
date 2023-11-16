@@ -1,5 +1,5 @@
 <div class="row justify-content-center d-flex" style="gap: 16px;">
-  <div class="card pt-2" style="width: 48rem; margin-bottom: 40px;">
+  <div class="card pt-2" style="width: 64rem; margin-bottom: 40px;">
     <div class="card-body">
       <%= link_to "〱 Back to all lists", lists_path, class: "card-text text-secondary" %>
       <div class="d-flex justify-content-between mb-4 mt-4">
@@ -8,13 +8,17 @@
       </div>
       <% @bookmarks.each_slice(3) do |bookmark_set| %>
         <div class="row mb-3">
-          <div class="col-12 justify-content-center d-flex" style="gap: 16px;">
+          <div class="col-12 d-flex" style="gap: 24px;">
             <% bookmark_set.each do |bookmark| %>
-              <div class="card" style="width: 18rem;">
+              <div class="card" style="width: 19rem;">
+                <img src="<%= bookmark.movie.poster_url %>" class="card-img-top img-fluid" alt="<%= bookmark.movie.title %> Poster">
                 <div class="card-body">
-                  <div>
-                    <h5 class="card-title"><%= bookmark.movie_id %></h5>
+                  <div class="d-flex justify-content-between">
+                    <h5 class="card-title"><%= bookmark.movie.title %></h5>
+                    <h6 style="font-weight: 300;"><%= bookmark.movie.rating %></h6>
                   </div>
+                    <p class="text-secondary"><%= bookmark.movie.overview %></p>
+                    <%= link_to "Remove", lists_path, class: "text-danger" %>
                 </div>
               </div>
             <% end %>
