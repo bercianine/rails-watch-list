@@ -14,12 +14,11 @@
   </head>
 
   <body>
+    <div class="navbar">
+      <h1 class="text-center"><%= link_to "🍿 Get Popin'", lists_path %></h1>
+      <%= link_to "New list", lists_new_path, class: "btn btn-primary" %>
+    </div>
     <div class="container pt-5">
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-4">
-          <h2 class="text-center mb-5"><%= link_to "🍿 Movies", lists_path %></h2>
-        </div>
-      </div>
       <%= yield %>
     </div>
   </body>
